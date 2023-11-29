@@ -23,6 +23,6 @@ async def manage_event(message: Message, state: FSMContext):
     await state.set_state(AdminStates.manage_event)
     await message.answer('Выберите, что вы хотите сделать', reply_markup=markup)
 
-@dp.message(AdminStates.main, F.text == "Управление мероприятиями")
+@dp.message(AdminStates.manage_event, F.text == "Назад")
 async def back_from_manage_event(message: Message, state: FSMContext):
     await admin_menu(message, state)
